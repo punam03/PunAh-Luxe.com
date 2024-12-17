@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - PunAh Luxe</title>
+    <title>Payment - PunAh Luxe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,15 +11,21 @@
         <div class="logo">PunAh Luxe</div>
     </header>
 
-    <section id="thank-you" class="thank-you">
-        <h2>Thank You for Shopping with PunAh Luxe!</h2>
-        <p>We appreciate your business and hope to see you again soon.</p>
-        <button onclick="backToHome()">Back to Home</button>
+    <section id="payment" class="payment">
+        <h2>Payment</h2>
+        <p>Total: $<span id="total"></span></p>
+        <button onclick="completePayment()">Complete Payment</button>
     </section>
 
     <script>
-        function backToHome() {
-            window.location.href = 'index.html';
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const total = cart.reduce((sum, item) => sum + item.price, 0);
+        document.getElementById('total').textContent = total.toFixed(2);
+
+        function completePayment() {
+            alert('Payment successful!');
+            localStorage.removeItem('cart');
+            window.location.href = 'thankyou.html';
         }
     </script>
 </body>
