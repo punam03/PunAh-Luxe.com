@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - PunAh Luxe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">PunAh Luxe</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="cart.html">Cart</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="products" class="products">
+        <h2>Our Collection</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="Luxury Handbag">
+                <h3>Elegant Handbag</h3>
+                <p>$199.99</p>
+                <button onclick="addToCart('Elegant Handbag', 199.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="Designer Dress">
+                <h3>Designer Dress</h3>
+                <p>$299.99</p>
+                <button onclick="addToCart('Designer Dress', 299.99)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/200" alt="Luxury Suit">
+                <h3>Luxury Suit</h3>
+                <p>$399.99</p>
+                <button onclick="addToCart('Luxury Suit', 399.99)">Add to Cart</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function addToCart(item, price) {
+            // Check if user is signed in
+            if (!localStorage.getItem('user')) {
+                alert('Please sign up or log in first!');
+                window.location.href = 'signup.html';
+                return;
+            }
+
+            // Store cart item in localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push({ item, price });
+            localStorage.setItem('cart', JSON.stringify(cart));
+            alert(`${item} added to cart!`);
+            window.location.href = 'cart.html';
+        }
+    </script>
+</body>
+</html>
