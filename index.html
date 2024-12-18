@@ -3,17 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PunAh Luxe - Luxury Clothing & Handbags</title>
+    <title>PunAh Luxe | Luxury Clothing & Handbags</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="script" href="script.js">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Pop-up styling */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+
+        .popup h3 {
+            margin: 0 0 20px;
+            color: #333;
+        }
+
+        .popup button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .popup button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Overlay to darken background */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+    </style>
 </head>
 <body>
-    <!-- Header Section -->
+    <!-- Header -->
     <header>
         <div class="logo">PunAh Luxe</div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="products.html">Products</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="signup.html">Sign Up</a></li>
                 <li><a href="cart.html">Cart</a></li>
             </ul>
@@ -23,17 +74,51 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Luxury Clothing & Handbags</h1>
-            <p>Discover premium fashion with elegance and style.</p>
-            <a href="products.html" class="shop-btn">Shop Now</a>
+            <h1>Welcome to PunAh Luxe</h1>
+            <p>Experience timeless luxury and elegance with our premium collections of clothing and handbags.</p>
+            <a href="#products" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section id="products" class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="https://cdn.shopify.com/s/files/1/0579/8251/7295/files/GB_-_Galaxy_Bags_480x480.jpg?v=1715852566" alt="Luxury Handbag">
+                <h3>Luxury Handbag</h3>
+                <p>$499</p>
+                <a href="#" class="btn-primary" onclick="showPopup()">Add to Cart</a>
+            </div>
+            <div class="product-card">
+                <img src="https://i.pinimg.com/736x/6a/d0/25/6ad025fcc3d3bceb21b58daf811ae35c.jpg" alt="Designer Dress">
+                <h3>Designer Dress</h3>
+                <p>$699</p>
+                <a href="#" class="btn-primary" onclick="showPopup()">Add to Cart</a>
+            </div>
+            <div class="product-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeFnBtxrepYfoAnEgaPnYUCgfOIIlHpeZd3Q&s" alt="Leather Wallet">
+                <h3>Leather Wallet</h3>
+                <p>$299</p>
+                <a href="#" class="btn-primary" onclick="showPopup()">Add to Cart</a>
+            </div>
+            
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about" class="about">
         <h2>About Us</h2>
-        <p>PunAh Luxe is your trusted brand for luxury fashion. Combining timeless design with comfort, we offer unparalleled quality to our customers.</p>
+        <p>PunAh Luxe is your destination for premium luxury fashion. We combine contemporary design with classic elegance to offer the finest collections of clothing and accessories.</p>
     </section>
+
+    <!-- Pop-up Modal -->
+    <div class="overlay" id="overlay"></div>
+    <div class="popup" id="popup">
+        <h3>Please Sign Up to Continue</h3>
+        <button onclick="redirectToSignUp()">Sign Up Now</button>
+        <button onclick="closePopup()">Cancel</button>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -47,5 +132,28 @@
             </ul>
         </div>
     </footer>
+
+    <script>
+        // Elements
+        const popup = document.getElementById('popup');
+        const overlay = document.getElementById('overlay');
+
+        // Show popup
+        function showPopup() {
+            popup.style.display = 'block';
+            overlay.style.display = 'block';
+        }
+
+        // Close popup
+        function closePopup() {
+            popup.style.display = 'none';
+            overlay.style.display = 'none';
+        }
+
+        // Redirect to sign-up page
+        function redirectToSignUp() {
+            window.location.href = 'signup.html';
+        }
+    </script>
 </body>
 </html>
