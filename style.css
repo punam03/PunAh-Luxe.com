@@ -1,79 +1,100 @@
 /* General Styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    line-height: 1.6;
+    background: #f9f9f9;
 }
 
 /* Header */
 header {
-    background: #333;
+    background: #1e1e1e;
     color: white;
-    padding: 10px 20px;
+    padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 header .logo {
-    font-size: 1.5em;
+    font-size: 1.8em;
     font-weight: bold;
+    color: #ff6b6b;
 }
 
 header nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    gap: 20px;
 }
 
 header nav ul li a {
     color: white;
     text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #ff6b6b;
 }
 
 /* Hero Section */
 .hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 50px 20px;
-    background: #444;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://img.freepik.com/free-photo/arrangement-black-friday-shopping-carts-with-copy-space_23-2148667047.jpg?t=st=1734502365~exp=1734505965~hmac=638472ce14eed6a227784b7a70ad92d6edb13e58cebd9d5e21dea538bde73253&w=740');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     color: white;
 }
 
-.hero h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.hero p {
+.hero-content p {
     font-size: 1.2em;
+    margin-bottom: 20px;
 }
 
-.hero .shop-btn {
-    padding: 10px 20px;
-    background: #ff5722;
+.hero-content .shop-btn {
+    background: #ff6b6b;
     color: white;
+    padding: 10px 20px;
     text-decoration: none;
     font-size: 1em;
     border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.hero-content .shop-btn:hover {
+    background: #e63946;
 }
 
 /* About Section */
 .about {
-    padding: 40px 20px;
-    background: white;
+    padding: 50px 20px;
+    background: #fff;
     text-align: center;
-    margin-top: auto;
+    color: #333;
 }
 
 .about h2 {
-    font-size: 2em;
+    font-size: 2.5em;
     margin-bottom: 10px;
+    color: #ff6b6b;
 }
 
 /* Footer */
 footer {
-    background: #333;
+    background: #1e1e1e;
     color: white;
     text-align: center;
     padding: 20px;
@@ -83,41 +104,51 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.footer-content p {
+    margin: 0;
 }
 
 .footer-content .social-links {
     display: flex;
+    justify-content: center;
     list-style: none;
-    gap: 10px;
+    gap: 15px;
     padding: 0;
+    margin: 0;
 }
 
 .footer-content .social-links li a {
     color: white;
     text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
 }
 
-/* Forms and Cart */
-.signup, .cart {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    background: white;
+.footer-content .social-links li a:hover {
+    color: #ff6b6b;
 }
 
-.signup-form, .cart-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 400px;
-    width: 100%;
-}
+/* Responsive Design */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
 
-.signup-form input, .cart-items button {
-    width: 100%;
-    padding: 10px;
-    font-size: 1em;
+    header nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero-content h1 {
+        font-size: 2em;
+    }
+
+    .about {
+        padding: 30px 10px;
+    }
 }
